@@ -13,13 +13,19 @@ PRODUCT_PACKAGES += \
     Etar \
     Profiles \
     Recorder \
-    Seedvault \
     Twelve
+
+ifneq ($(TARGET_ARCH), riscv64)
+
+PRODUCT_PACKAGES += \
+    Seedvault \
 
 ifneq ($(PRODUCT_NO_CAMERA),true)
 PRODUCT_PACKAGES += \
     Aperture
-endif
+endif # PRODUCT_NO_CAMERA
+
+endif # TARGET_ARCH
 
 ifneq ($(TARGET_EXCLUDES_AUDIOFX),true)
 PRODUCT_PACKAGES += \
